@@ -1,0 +1,16 @@
+{
+    "name": "yaf/project",
+    "authors": [
+        {
+            "name": "medue",
+            "email": "caomiaoli@formail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Service\\": "application/service/",
+            "Core\\": "core/"
+        }
+    },
+    "require": {}
+}
