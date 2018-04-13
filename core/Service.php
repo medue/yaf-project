@@ -10,6 +10,11 @@ namespace Core;
 
 use Yaf_Registry;
 
+/**
+ * 只是起个参考，有很多不完善的地方
+ * Class Service
+ * @package Core
+ */
 class Service
 {
 

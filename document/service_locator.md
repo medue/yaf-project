@@ -1,5 +1,9 @@
 ### yaf 服务容器、依赖注入、定位与发现
 
+[实例https://github.com/medue/yaf-project/tree/master%23container](https://github.com/medue/yaf-project/tree/master%23container)
+
+实现是参考symfony服务容器，根据配置自动实例服务到容器实体.并注入依赖
+
 * 服务容器
 
 参考自symfony的pimple[https://pimple.symfony.com/](https://pimple.symfony.com/)
