@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+set_time_limit(0);
+
+define("APP_PATH",  realpath(dirname(__FILE__) . '/../'));
+define("APPLICATION_CONFIG_PATH", APP_PATH . '/conf');
+
+require __DIR__.'/../vendor/autoload.php';
+require_once APPLICATION_CONFIG_PATH . '/env.php';
+use Symfony\Component\Console\Application;
+
+$app = new Yaf_Application(APPLICATION_CONFIG_PATH . '/application.ini', APPLICATION_ENV);
+$app->bootstrap();
+
+$commandPath = $app->getConfig()->application->directory.'command';
+$application = new Application();
+$app_list = [];
+
+foreach (glob($commandPath.'/*Command.php') as $row){
+    $class = sprintf('command\\%s', basename($row, '.php'));
+    $object = new \ReflectionClass($class);
+    $app_list[] = $object->newInstance();
+}
+
+$application->addCommands($app_list);
+$application->setAutoExit(false);
+$application->run();
